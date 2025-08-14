@@ -1,0 +1,14 @@
+.cell {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* colori per tipo di cella */
+.cell.wall {
+  background-color: #444; /* muro */
+}
+
+.cell.empty {
+  background-color: #fff; /* percorso libero */
+}
