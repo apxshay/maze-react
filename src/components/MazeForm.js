@@ -1,20 +1,13 @@
 import generateMaze from '../utils/MazeUtils'
 
-function MazeForm({width, height, setWidth, setHeight, setShowMaze, mazeMatrix, setMazeMatrix}){
+function MazeForm({width, height, setWidth, setHeight, setShowMaze, onSubmit}){
     const handleSubmit = (e) => {
         e.preventDefault()
         setShowMaze(true)
         const h = Number(height)
         const w = Number(width)
 
-        // creating initial maze state based on the form submitted
-        const initialMatrix =  Array(h).fill(null).map( () => Array(w).fill("wall"))
-        setMazeMatrix(initialMatrix)
-
-        
-        // TODO : generateMaze
-        generateMaze(initialMatrix, 1, 1, setMazeMatrix)
-
+        onSubmit(w, h)
 
     }
 
