@@ -1,5 +1,3 @@
-import generateMaze from '../utils/MazeUtils'
-
 function MazeForm({width, height, setWidth, setHeight, setShowMaze, onSubmit}){
     const handleSubmit = (e) => {
         e.preventDefault()
