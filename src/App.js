@@ -16,7 +16,8 @@ function App() {
   return (
     <div className="app">
     { !showMaze && <MazeForm width={width} height={height} setWidth={setWidth} setHeight={setHeight} setShowMaze={setShowMaze} onSubmit={HandleSubmit} />}
-    { showMaze && <MazeGrid width={width} height={height}  />}
+    { showMaze && <MazeGrid width={width} height={height} algorithm={"dfs"} />}
+    { showMaze && <MazeGrid width={width} height={height} algorithm={"prim"} />}
     </div>
   )
 }

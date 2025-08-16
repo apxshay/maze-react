@@ -38,9 +38,10 @@ export async function generateMazePrim(maze, x, y) {
         }
     }
 
-    while(walls.length !== 0){
-        counter++
-        if (counter % Math.floor((maze.length+maze[0].length)/10) == 0) await new Promise(res => setTimeout(res, 1))
+    let primCounter = 0
+    while (walls.length !== 0) {
+        primCounter++
+        if (primCounter % Math.floor((maze.length+maze[0].length)/10) == 0) await new Promise(res => setTimeout(res, 1))
 
         const random = Math.floor(Math.random() * (walls.length))
         const [newX, newY] = walls[random]

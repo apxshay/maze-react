@@ -3,7 +3,7 @@ import Cell from  './Cell'
 import './Maze.css'
 import generateMaze, { generateMazePrim } from '../utils/MazeUtils'
 
-function MazeGrid({width, height}){
+function MazeGrid({width, height, algorithm}){
   // state to store cells states and setState functions 
   const [cellRefs, setCellRefs] = useState([])
 
@@ -20,7 +20,14 @@ function MazeGrid({width, height}){
   // when cellRefs is updated check if it is ready, by checking if is long height, and every element is long width
   useEffect(() => {
     if (cellRefs.length === height && cellRefs.every(row => row.length === width)) {
-      generateMazePrim(cellRefs,1,1) 
+      switch(algorithm){
+        case "dfs":
+          generateMaze(cellRefs, 1, 1)
+          break
+        case "prim":
+          generateMazePrim(cellRefs,1,1) 
+          break
+      }
     }
   }, [cellRefs])
 
