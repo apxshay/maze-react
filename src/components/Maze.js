@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Cell from  './Cell'
 import './Maze.css'
-import generateMaze, { generateMazePrim } from '../utils/MazeUtils'
+import generateMazeRecursiveDFS, { generateMazeIterativeDFS, generateMazeKruskal, generateMazePrim } from '../utils/MazeUtils'
 
 function MazeGrid({width, height, algorithm}){
   // state to store cells states and setState functions 
@@ -21,11 +21,17 @@ function MazeGrid({width, height, algorithm}){
   useEffect(() => {
     if (cellRefs.length === height && cellRefs.every(row => row.length === width)) {
       switch(algorithm){
-        case "dfs":
-          generateMaze(cellRefs, 1, 1)
+        case "dfs recursive":
+          generateMazeRecursiveDFS(cellRefs, 1, 1)
           break
         case "prim":
           generateMazePrim(cellRefs,1,1) 
+          break
+        case  "dfs iterative":
+          generateMazeIterativeDFS(cellRefs, 1, 1)
+          break
+        case "kruskal":
+          generateMazeKruskal(cellRefs)
           break
       }
     }
